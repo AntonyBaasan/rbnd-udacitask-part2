@@ -23,5 +23,8 @@ module Listable
     value = "" if !priority
     return value
   end
-
+  
+  def format_header text
+  
+  end
 end
