@@ -46,3 +46,4 @@ new_list.all
 # ------------------------
 new_list.filter("event")
 new_list.filter("todo")
+new_list.filter("dump")

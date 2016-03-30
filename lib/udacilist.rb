@@ -58,10 +58,14 @@ class UdaciList
     puts header
     puts "-" * header.length
     
-    @items.each_with_index do |item, position|
-        if type == item.item_type
-            puts "#{position + 1}) #{item.details}" 
-        end 
+    if (@items.select {|item| item.item_type == type}).size ==0
+        puts "No data with this type!"
+    elsif
+        @items.each_with_index do |item, position|
+            if type == item.item_type
+                puts "#{position + 1}) #{item.details}" 
+        end
+    end 
     end
   end
 end
