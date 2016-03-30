@@ -3,6 +3,13 @@ GEM
   specs:
     chronic (0.10.2)
     colorize (0.7.7)
+    google-translate (1.1.2)
+      json_pure (~> 1.8)
+      resource_accessor (~> 1.2)
+      thor (~> 0.19)
+    json_pure (1.8.3)
+    resource_accessor (1.2.4)
+    thor (0.19.1)
 
 PLATFORMS
   ruby
@@ -10,6 +17,7 @@ PLATFORMS
 DEPENDENCIES
   chronic
   colorize (= 0.7.7)
+  google-translate (= 1.1.2)
 
 BUNDLED WITH
    1.11.2

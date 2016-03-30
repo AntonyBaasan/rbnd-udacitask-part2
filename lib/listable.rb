@@ -2,7 +2,7 @@ module Listable
   # Listable methods go here
   
   def format_description(description)
-    "#{description}".ljust(30)
+    "#{description}(#{item_type})".ljust(30)
   end
   
   def format_due_date (due)
@@ -24,7 +24,13 @@ module Listable
     return value
   end
   
-  def format_header text
-  
+  def item_type
+    if self.is_a?(TodoItem)
+        "todo"
+    elsif self.is_a?(EventItem)
+        "event"
+    elsif self.is_a?(LinkItem)
+        "link"
+    end 
   end
 end

@@ -57,6 +57,7 @@ class UdaciList
     puts "-" * header.length
     puts header
     puts "-" * header.length
+    
     @items.each_with_index do |item, position|
         if type == "todo" && item.is_a?(TodoItem)
             puts "#{position + 1}) #{item.details}" 
