@@ -1,5 +1,6 @@
 require 'chronic'
 require 'colorize'
+require 'highline'
 # Find a third gem of your choice and add it to your project
 require 'date'
 require_relative "lib/listable"
@@ -8,6 +9,7 @@ require_relative "lib/udacilist"
 require_relative "lib/todo"
 require_relative "lib/event"
 require_relative "lib/link"
+require 'uri'
 
 list = UdaciList.new(title: "Julia's Stuff")
 list.add("todo", "Buy more cat food", due: "2016-02-03", priority: "low")
@@ -47,3 +49,27 @@ new_list.all
 new_list.filter("event")
 new_list.filter("todo")
 new_list.filter("dump")
+
+puts " "
+puts " Create 'LINK' item "
+puts " "
+cli = HighLine.new
+
+site_name = cli.ask("Insert site name?  ") { |q| q.default = "none" }
+
+url = nil
+
+while url == nil
+    url = cli.ask("Insert url? (example: http://www.ruby.com)") { |q| q.default = "none" }
+    
+    if url =~ URI::regexp
+        break
+    else
+        p "wrong uri, try again"
+        url = nil
+    end
+end
+
+new_list.add("link", url, site_name: site_name)
+
+new_list.filter("link")

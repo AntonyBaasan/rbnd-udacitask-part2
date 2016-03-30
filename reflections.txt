@@ -1,10 +1,11 @@
 # What you added to Udacitask 2.0
 # -------------------------------------------------------
 1. What is the gem of your choice and how did you use it?
+    HighLine - input helper
     
 2. Describe the 2 features you added to the project.
-  a) Feature 1...
-  b) Feature 2...
+  a) Insert 1 more Item from CLI
+  b) Uri validation
 
 # REFLECTIONS
 # -------------------------------------------------------
@@ -16,7 +17,11 @@
     -Wanted to use "google-translate" gem but it wasn't working. Google returned 403 page. Spent lot of time.
 
 3. What two additional features did you build? Why?
-    
+    - Insert 1 more Item from CLI. Wanted to use a gem.
+    - Uri validation
 
 4. Where do you still have room to grow?
+    - More advance input handler. 
+    - Input validator.
+    - More item types
     
