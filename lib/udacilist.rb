@@ -1,5 +1,12 @@
+require_relative "todo"
+require_relative "event"
+require_relative "link"
+
+
 class UdaciList
   attr_reader :title, :items
+
+  ALLOWED_TYPES = { todo: TodoItem, event: EventItem, link: LinkItem }
 
   def initialize(options={})
     @title = options[:title] || "Untitled List"
@@ -13,17 +20,12 @@ class UdaciList
         raise UdaciListErrors::InvalidPriorityValue, "Invalid Priority value"
     end
     
-    if type == "todo"
-        @items.push TodoItem.new(description, options) 
-    elsif type == "event"
-        @items.push EventItem.new(description, options)
-    elsif type == "link" 
-        @items.push LinkItem.new(description, options) 
+    if ALLOWED_TYPES.keys.include? type.to_sym
+        @items.push ALLOWED_TYPES[type.to_sym].new(description, options)
     else
-        raise UdaciListErrors::InvalidItemType, "Invalid Item type!"
+        raise UdaciListErrors::InvalidItemType, "Invalid Item Type: #{type}"
     end
   end
-  
   
   def validate_priority priority
     priority = priority.downcase
@@ -64,8 +66,9 @@ class UdaciList
         @items.each_with_index do |item, position|
             if type == item.item_type
                 puts "#{position + 1}) #{item.details}" 
-        end
-    end 
+            end
+        end 
     end
   end
+  
 end

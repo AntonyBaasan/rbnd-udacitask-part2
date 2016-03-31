@@ -13,4 +13,8 @@ class TodoItem
     format_due_date(@due) +
     format_priority(@priority)
   end
+  
+  def item_type
+    "todo"
+  end
 end

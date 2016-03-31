@@ -24,13 +24,4 @@ module Listable
     return value
   end
   
-  def item_type
-    if self.is_a?(TodoItem)
-        "todo"
-    elsif self.is_a?(EventItem)
-        "event"
-    elsif self.is_a?(LinkItem)
-        "link"
-    end 
-  end
 end
